@@ -1,1 +1,326 @@
-a
+if not game['Loaded'] or not game:GetService('Players')['LocalPlayer'] then
+    game['Loaded']:Wait();
+    game:WaitForChild(game:GetService('Players'));
+    game:GetService('Players'):WaitForChild(game:GetService('Players').LocalPlayer.Name)
+end
+if game.PlaceId == 2788229376 then
+wait(4)
+-----------------------------------------------
+-----------------------------------------------
+if not game['Loaded'] or not game:GetService('Players')['LocalPlayer'] then
+game['Loaded']:Wait();
+game:WaitForChild(game:GetService('Players'));
+game:GetService('Players'):WaitForChild(game:GetService('Players').LocalPlayer.Name)
+end
+TweenService = game:GetService("TweenService")
+rs = game:GetService("RunService")
+local OriginalKeyUpValue = 0
+function StopAudio()
+if game:GetService("Players").LocalPlayer.Character.LowerTorso:FindFirstChild("BOOMBOXSOUND") then
+game:GetService("Players").LocalPlayer.Character.LowerTorso.BOOMBOXSOUND:Stop()
+end
+end
+function stop(ID, Key)
+local cor = coroutine.wrap(function()
+wait(game:GetService("Players").LocalPlayer.Character.LowerTorso.BOOMBOXSOUND.TimeLength-0.1)
+if game:GetService("Players").LocalPlayer.Character.LowerTorso.BOOMBOXSOUND.SoundId == "rbxassetid://"..ID and OriginalKeyUpValue == Key then
+StopAudio()
+end
+end)
+cor()
+end
+function play(ID, STOP, LMAO)
+if game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("[Boombox]") then
+local Tool = nil
+if game:GetService("Players").LocalPlayer.Character:FindFirstChildWhichIsA("Tool") and LMAO == true then
+Tool = game:GetService("Players").LocalPlayer.Character:FindFirstChildWhichIsA("Tool")
+game:GetService("Players").LocalPlayer.Character:FindFirstChildWhichIsA("Tool").Parent = game:GetService("Players").LocalPlayer.Backpack
+end
+game:GetService("Players").LocalPlayer.Backpack["[Boombox]"].Parent =
+game:GetService("Players").LocalPlayer.Character
+game.ReplicatedStorage.MainEvent:FireServer("Boombox", ID)
+game:GetService("Players").LocalPlayer.Character["[Boombox]"].RequiresHandle = false
+if game:GetService("Players").LocalPlayer.Character["[Boombox]"]:FindFirstChild("Handle") then
+game:GetService("Players").LocalPlayer.Character["[Boombox]"].Handle:Destroy()
+end
+game:GetService("Players").LocalPlayer.Character["[Boombox]"].Parent =
+game:GetService("Players").LocalPlayer.Backpack
+game:GetService("Players").LocalPlayer.PlayerGui.MainScreenGui.BoomboxFrame.Visible = false
+if Tool ~= true then
+if Tool then
+Tool.Parent = game:GetService("Players").LocalPlayer.Character
+end
+end
+if STOP == true then
+game:GetService("Players").LocalPlayer.Character.LowerTorso:WaitForChild("BOOMBOXSOUND")
+local cor = coroutine.wrap(function()
+repeat wait() until game:GetService("Players").LocalPlayer.Character.LowerTorso.BOOMBOXSOUND.SoundId == "rbxassetid://"..ID and game:GetService("Players").LocalPlayer.Character.LowerTorso.BOOMBOXSOUND.TimeLength > 0.01
+OriginalKeyUpValue = OriginalKeyUpValue+1
+stop(ID, OriginalKeyUpValue)
+end)
+cor()
+end
+end
+end
+      tool = Instance.new("Tool")
+	tool.RequiresHandle = false
+	tool.Name = "Dash Attack"
+	tool.Activated:connect(function()
+		local A_1 = game.Players.LocalPlayer.Character.BodyEffects.Movement:FindFirstChild("SuperSpeed")
+		local A_2 = game.Players.LocalPlayer.Character.BodyEffects.Movement:FindFirstChild("HulkJump")
+		if A_1 then
+
+		else
+for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
+if v:IsA("Tool") and v.Name == "Combat" then
+v.Parent = game:GetService("Players").LocalPlayer.Character
+end
+end
+-----------------------------------
+wait(0.1)
+if game.Players.LocalPlayer.Character.Humanoid:FindFirstChild("TrailEffects") then 
+game.Players.LocalPlayer.Character.Humanoid.TrailEffects:Destroy()
+end
+     game:GetService('RunService'):BindToRenderStep("silent", 0 , function()
+wait(0.0000000000001)
+     local Char = game.Players.LocalPlayer.Character local Hum = Char:FindFirstChildOfClass("Humanoid") or Char:FindFirstChildOfClass("AnimationController")
+            for i,v in next, Hum:GetPlayingAnimationTracks() do
+                if v.Animation.AnimationId == "rbxassetid://2788289281" then
+                    v:Stop()
+                end
+            end
+        end)
+        game:GetService('RunService'):BindToRenderStep("silent2", 0 , function()
+            wait(0.00000000001)
+        local Char = game.Players.LocalPlayer.Character local Hum = Char:FindFirstChildOfClass("Humanoid") or Char:FindFirstChildOfClass("AnimationController")
+        for i,v in next, Hum:GetPlayingAnimationTracks() do
+            if v.Animation.AnimationId == "rbxassetid://3354699999" then
+                v:Stop()
+            end
+        end
+    end)
+
+game.Players.LocalPlayer.Character.Combat:Activate()
+        game:GetService('RunService'):BindToRenderStep("no slow", 0 , function()
+if game.Players.LocalPlayer.Character.BodyEffects.Movement:FindFirstChild("NoWalkSpeed") then 
+    game.Players.LocalPlayer.Character.BodyEffects.Movement:FindFirstChild("NoWalkSpeed"):Destroy() 
+end
+if game.Players.LocalPlayer.Character.BodyEffects.Movement:FindFirstChild("ReduceWalk") then 
+    game.Players.LocalPlayer.Character.BodyEffects.Movement:FindFirstChild("ReduceWalk"):Destroy() 
+end
+if game.Players.LocalPlayer.Character.BodyEffects.Movement:FindFirstChild("NoJumping") then 
+    game.Players.LocalPlayer.Character.BodyEffects.Movement:FindFirstChild("NoJumping"):Destroy() 
+end
+        end)
+----------------------------------
+        game:GetService('RunService'):BindToRenderStep("Reach", 0 , function()
+            local success, err = pcall(function()
+                if game.Players.LocalPlayer.Character.BodyEffects.Attacking.Value == true then
+                    for i,v in pairs(game:GetService('Players'):GetChildren()) do
+                        if (v.Character.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.LeftHand.Position).Magnitude <= 50 then
+                            if game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool") then
+                                if game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool"):FindFirstChild('Handle') then
+                                    firetouchinterest(game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool").Handle, v.Character.UpperTorso, 0)
+                                else
+                                    firetouchinterest(game.Players.LocalPlayer.Character['RightHand'], v.Character.UpperTorso, 0)
+                                    firetouchinterest(game.Players.LocalPlayer.Character['LeftHand'], v.Character.UpperTorso, 0)
+                                    firetouchinterest(game.Players.LocalPlayer.Character['RightFoot'], v.Character.UpperTorso, 0)
+                                    firetouchinterest(game.Players.LocalPlayer.Character['LeftFoot'], v.Character.UpperTorso, 0)
+                                    firetouchinterest(game.Players.LocalPlayer.Character['RightLowerLeg'], v.Character.UpperTorso, 0)
+                                    firetouchinterest(game.Players.LocalPlayer.Character['LeftLowerLeg'], v.Character.UpperTorso, 0)
+                                end
+                            end
+                        end
+                    end
+                end
+            end)
+----------------------------------------
+        end)
+wait(1.37)
+play(6546128175,true,true)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, -15)
+wait(1.4)
+game:GetService('RunService'):UnbindFromRenderStep("Reach")
+for i,v in pairs(game:GetService("Players").LocalPlayer.Character:GetChildren()) do
+if v:IsA("Tool") and v.Name == "Combat" then
+v.Parent = game:GetService("Players").LocalPlayer.Backpack
+end
+end
+wait(1.3)
+game:GetService('RunService'):UnbindFromRenderStep("silent")
+game:GetService('RunService'):UnbindFromRenderStep("silent2")
+game:GetService('RunService'):BindToRenderStep("stop no slow", 0 , function()
+game:GetService('RunService'):UnbindFromRenderStep("no slow")
+end)
+wait(1)
+game:GetService('RunService'):UnbindFromRenderStep("stop no slow")
+		end
+		if A_2 then
+			game:GetService"Players".LocalPlayer.Character.BodyEffects.Movement.HulkJump:Destroy()
+		else
+game:GetService"Players".LocalPlayer.Character.BodyEffects.Movement.HulkJump:Destroy()
+		end
+	end)
+	tool.Parent = game.Players.LocalPlayer.Backpack
+----------------------------
+elseif
+game.PlaceId == 7213786345 then
+wait(4)
+-----------------------------------------------
+-----------------------------------------------
+if not game['Loaded'] or not game:GetService('Players')['LocalPlayer'] then
+game['Loaded']:Wait();
+game:WaitForChild(game:GetService('Players'));
+game:GetService('Players'):WaitForChild(game:GetService('Players').LocalPlayer.Name)
+end
+TweenService = game:GetService("TweenService")
+rs = game:GetService("RunService")
+local OriginalKeyUpValue = 0
+function StopAudio()
+if game:GetService("Players").LocalPlayer.Character.LowerTorso:FindFirstChild("BOOMBOXSOUND") then
+game:GetService("Players").LocalPlayer.Character.LowerTorso.BOOMBOXSOUND:Stop()
+end
+end
+function stop(ID, Key)
+local cor = coroutine.wrap(function()
+wait(game:GetService("Players").LocalPlayer.Character.LowerTorso.BOOMBOXSOUND.TimeLength-0.1)
+if game:GetService("Players").LocalPlayer.Character.LowerTorso.BOOMBOXSOUND.SoundId == "rbxassetid://"..ID and OriginalKeyUpValue == Key then
+StopAudio()
+end
+end)
+cor()
+end
+function play(ID, STOP, LMAO)
+if game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("[Boombox]") then
+local Tool = nil
+if game:GetService("Players").LocalPlayer.Character:FindFirstChildWhichIsA("Tool") and LMAO == true then
+Tool = game:GetService("Players").LocalPlayer.Character:FindFirstChildWhichIsA("Tool")
+game:GetService("Players").LocalPlayer.Character:FindFirstChildWhichIsA("Tool").Parent = game:GetService("Players").LocalPlayer.Backpack
+end
+game:GetService("Players").LocalPlayer.Backpack["[Boombox]"].Parent =
+game:GetService("Players").LocalPlayer.Character
+game.ReplicatedStorage.MainEvent:FireServer("Boombox", ID)
+game:GetService("Players").LocalPlayer.Character["[Boombox]"].RequiresHandle = false
+if game:GetService("Players").LocalPlayer.Character["[Boombox]"]:FindFirstChild("Handle") then
+game:GetService("Players").LocalPlayer.Character["[Boombox]"].Handle:Destroy()
+end
+game:GetService("Players").LocalPlayer.Character["[Boombox]"].Parent =
+game:GetService("Players").LocalPlayer.Backpack
+game:GetService("Players").LocalPlayer.PlayerGui.MainScreenGui.BoomboxFrame.Visible = false
+if Tool ~= true then
+if Tool then
+Tool.Parent = game:GetService("Players").LocalPlayer.Character
+end
+end
+if STOP == true then
+game:GetService("Players").LocalPlayer.Character.LowerTorso:WaitForChild("BOOMBOXSOUND")
+local cor = coroutine.wrap(function()
+repeat wait() until game:GetService("Players").LocalPlayer.Character.LowerTorso.BOOMBOXSOUND.SoundId == "rbxassetid://"..ID and game:GetService("Players").LocalPlayer.Character.LowerTorso.BOOMBOXSOUND.TimeLength > 0.01
+OriginalKeyUpValue = OriginalKeyUpValue+1
+stop(ID, OriginalKeyUpValue)
+end)
+cor()
+end
+end
+end
+      tool = Instance.new("Tool")
+	tool.RequiresHandle = false
+	tool.Name = "Dash Attack"
+	tool.Activated:connect(function()
+		local A_1 = game.Players.LocalPlayer.Character.BodyEffects.Movement:FindFirstChild("SuperSpeed")
+		local A_2 = game.Players.LocalPlayer.Character.BodyEffects.Movement:FindFirstChild("HulkJump")
+		if A_1 then
+
+		else
+for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
+if v:IsA("Tool") and v.Name == "Combat" then
+v.Parent = game:GetService("Players").LocalPlayer.Character
+end
+end
+-----------------------------------
+wait(0.1)
+if game.Players.LocalPlayer.Character.Humanoid:FindFirstChild("TrailEffects") then 
+game.Players.LocalPlayer.Character.Humanoid.TrailEffects:Destroy()
+end
+     game:GetService('RunService'):BindToRenderStep("silent", 0 , function()
+wait(0.0000000000001)
+     local Char = game.Players.LocalPlayer.Character local Hum = Char:FindFirstChildOfClass("Humanoid") or Char:FindFirstChildOfClass("AnimationController")
+            for i,v in next, Hum:GetPlayingAnimationTracks() do
+                if v.Animation.AnimationId == "rbxassetid://2788289281" then
+                    v:Stop()
+                end
+            end
+        end)
+        game:GetService('RunService'):BindToRenderStep("silent2", 0 , function()
+            wait(0.00000000001)
+        local Char = game.Players.LocalPlayer.Character local Hum = Char:FindFirstChildOfClass("Humanoid") or Char:FindFirstChildOfClass("AnimationController")
+        for i,v in next, Hum:GetPlayingAnimationTracks() do
+            if v.Animation.AnimationId == "rbxassetid://3354699999" then
+                v:Stop()
+            end
+        end
+    end)
+
+game.Players.LocalPlayer.Character.Combat:Activate()
+        game:GetService('RunService'):BindToRenderStep("no slow", 0 , function()
+if game.Players.LocalPlayer.Character.BodyEffects.Movement:FindFirstChild("NoWalkSpeed") then 
+    game.Players.LocalPlayer.Character.BodyEffects.Movement:FindFirstChild("NoWalkSpeed"):Destroy() 
+end
+if game.Players.LocalPlayer.Character.BodyEffects.Movement:FindFirstChild("ReduceWalk") then 
+    game.Players.LocalPlayer.Character.BodyEffects.Movement:FindFirstChild("ReduceWalk"):Destroy() 
+end
+if game.Players.LocalPlayer.Character.BodyEffects.Movement:FindFirstChild("NoJumping") then 
+    game.Players.LocalPlayer.Character.BodyEffects.Movement:FindFirstChild("NoJumping"):Destroy() 
+end
+        end)
+----------------------------------
+        game:GetService('RunService'):BindToRenderStep("Reach", 0 , function()
+            local success, err = pcall(function()
+                if game.Players.LocalPlayer.Character.BodyEffects.Attacking.Value == true then
+                    for i,v in pairs(game:GetService('Players'):GetChildren()) do
+                        if (v.Character.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.LeftHand.Position).Magnitude <= 50 then
+                            if game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool") then
+                                if game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool"):FindFirstChild('Handle') then
+                                    firetouchinterest(game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool").Handle, v.Character.UpperTorso, 0)
+                                else
+                                    firetouchinterest(game.Players.LocalPlayer.Character['RightHand'], v.Character.UpperTorso, 0)
+                                    firetouchinterest(game.Players.LocalPlayer.Character['LeftHand'], v.Character.UpperTorso, 0)
+                                    firetouchinterest(game.Players.LocalPlayer.Character['RightFoot'], v.Character.UpperTorso, 0)
+                                    firetouchinterest(game.Players.LocalPlayer.Character['LeftFoot'], v.Character.UpperTorso, 0)
+                                    firetouchinterest(game.Players.LocalPlayer.Character['RightLowerLeg'], v.Character.UpperTorso, 0)
+                                    firetouchinterest(game.Players.LocalPlayer.Character['LeftLowerLeg'], v.Character.UpperTorso, 0)
+                                end
+                            end
+                        end
+                    end
+                end
+            end)
+----------------------------------------
+        end)
+wait(1.37)
+play(6546128175,true,true)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, -15)
+wait(1.4)
+game:GetService('RunService'):UnbindFromRenderStep("Reach")
+for i,v in pairs(game:GetService("Players").LocalPlayer.Character:GetChildren()) do
+if v:IsA("Tool") and v.Name == "Combat" then
+v.Parent = game:GetService("Players").LocalPlayer.Backpack
+end
+end
+wait(1.3)
+game:GetService('RunService'):UnbindFromRenderStep("silent")
+game:GetService('RunService'):UnbindFromRenderStep("silent2")
+game:GetService('RunService'):BindToRenderStep("stop no slow", 0 , function()
+game:GetService('RunService'):UnbindFromRenderStep("no slow")
+end)
+wait(1)
+game:GetService('RunService'):UnbindFromRenderStep("stop no slow")
+		end
+		if A_2 then
+			game:GetService"Players".LocalPlayer.Character.BodyEffects.Movement.HulkJump:Destroy()
+		else
+game:GetService"Players".LocalPlayer.Character.BodyEffects.Movement.HulkJump:Destroy()
+		end
+	end)
+	tool.Parent = game.Players.LocalPlayer.Backpack
+end
